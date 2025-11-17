@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WhatsApp Redirect</title>
+    <link rel="icon" type="image/png" href="./logo.png" />
+    <style>
+      html,
+      body {
+        overflow: hidden;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #25d366, #128c7e);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .container {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .whatsapp-icon {
+        width: 80px;
+        height: 80px;
+        background: #25d366;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+      }
+
+      .whatsapp-icon svg {
+        width: 50px;
+        height: 50px;
+        fill: white;
+      }
+
+      h1 {
+        color: #128c7e;
+        margin-bottom: 10px;
+        font-size: 2rem;
+      }
+
+      .subtitle {
+        color: #666;
+        margin-bottom: 30px;
+        font-size: 1rem;
+      }
+
+      .input-group {
+        margin-bottom: 20px;
+      }
+
+      .country-code {
+        position: relative;
+        margin-bottom: 15px;
+      }
+
+      select {
+        width: 100%;
+        padding: 15px;
+        border: 2px solid #e0e0e0;
+        border-radius: 10px;
+        font-size: 16px;
+        background: white;
+        outline: none;
+        transition: border-color 0.3s;
+      }
+
+      select:focus {
+        border-color: #25d366;
+      }
+
+      input {
+        width: 100%;
+        padding: 15px;
+        border: 2px solid #e0e0e0;
+        border-radius: 10px;
+        font-size: 16px;
+        outline: none;
+        transition: border-color 0.3s;
+      }
+
+      input:focus {
+        border-color: #25d366;
+      }
+
+      .error {
+        color: #e74c3c;
+        font-size: 14px;
+        margin-top: 5px;
+        display: none;
+      }
+
+      .btn {
+        background: #25d366;
+        color: white;
+        border: none;
+        padding: 16px 30px;
+        border-radius: 10px;
+        font-size: 18px;
+        cursor: pointer;
+        width: 100%;
+        transition: background 0.3s, transform 0.2s;
+        font-weight: 600;
+      }
+
+      .btn:hover {
+        background: #128c7e;
+        transform: translateY(-2px);
+      }
+
+      .btn:active {
+        transform: translateY(0);
+      }
+
+      .how-it-works {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+      }
+
+      .how-it-works h3 {
+        color: #333;
+        margin-bottom: 15px;
+      }
+
+      .steps {
+        text-align: left;
+        color: #666;
+      }
+
+      .steps ol {
+        padding-left: 20px;
+      }
+
+      .steps li {
+        margin-bottom: 8px;
+      }
+
+      .footer {
+        margin-top: 30px;
+        color: #999;
+        font-size: 12px;
+      }
+
+      .footer a {
+        color: #25d366;
+        text-decoration: none;
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          padding: 30px 20px;
+        }
+
+        h1 {
+          font-size: 1.5rem;
+        }
+
+        .btn {
+          padding: 14px 20px;
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="whatsapp-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"
+          />
+        </svg>
+      </div>
+
+      <h1>WhatsApp Redirect</h1>
+      <p class="subtitle">Enter your phone number to start a chat</p>
+
+      <div class="input-group">
+        <div class="country-code">
+          <select id="countryCode">
+            <option value="+91">India (+91)</option>
+            <option value="+1">USA (+1)</option>
+            <option value="+44">UK (+44)</option>
+            <option value="+61">Australia (+61)</option>
+            <option value="+81">Japan (+81)</option>
+            <option value="+86">China (+86)</option>
+            <option value="+33">France (+33)</option>
+            <option value="+49">Germany (+49)</option>
+            <option value="+55">Brazil (+55)</option>
+            <option value="+7">Russia (+7)</option>
+            <option value="+234">Nigeria (+234)</option>
+            <option value="+27">South Africa (+27)</option>
+          </select>
+        </div>
+
+        <input
+          type="tel"
+          id="phoneNumber"
+          placeholder="Enter your phone number (e.g., 9876543210)"
+          maxlength="15"
+        />
+        <div id="error" class="error">
+          Please enter a valid 10-digit phone number
+        </div>
+      </div>
+
+      <button class="btn" onclick="redirectToWhatsApp()">Open WhatsApp</button>
+
+      <div class="how-it-works">
+        <h3>How It Works</h3>
+        <div class="steps">
+          <ol>
+            <li>Select your country code from the dropdown</li>
+            <li>Enter your 10-digit phone number (without country code)</li>
+            <li>Click "Open WhatsApp" button</li>
+            <li>WhatsApp will open with a chat window</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>
+          © 2025 WhatsApp Redirect |
+          <a href="#" onclick="showPrivacy()">Privacy Policy</a> |
+          <a href="#" onclick="showTerms()">Terms of Use</a>
+        </p>
+      </div>
+    </div>
+
+    <script>
+      function redirectToWhatsApp() {
+        const phoneNumber = document.getElementById("phoneNumber").value.trim();
+        const countryCode = document.getElementById("countryCode").value;
+        const errorDiv = document.getElementById("error");
+
+        // Validate phone number (10 digits)
+        const phoneRegex = /^[0-9]{10}$/;
+
+        if (!phoneRegex.test(phoneNumber)) {
+          errorDiv.style.display = "block";
+          return;
+        }
+
+        errorDiv.style.display = "none";
+
+        // Combine country code and phone number
+        const fullNumber = countryCode.replace("+", "") + phoneNumber;
+        const whatsappUrl = `https://wa.me/${fullNumber}`;
+
+        // Open WhatsApp in new tab
+        window.open(whatsappUrl, "_blank");
+      }
+
+      // Allow Enter key to trigger redirect
+      document
+        .getElementById("phoneNumber")
+        .addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            redirectToWhatsApp();
+          }
+        });
+
+      // Clear error when user starts typing
+      document
+        .getElementById("phoneNumber")
+        .addEventListener("input", function () {
+          document.getElementById("error").style.display = "none";
+        });
+
+      function showPrivacy() {
+        alert(
+          "Privacy Policy: We do not store or collect any personal information. Your phone number is used only to redirect to WhatsApp."
+        );
+      }
+
+      function showTerms() {
+        alert(
+          "Terms of Use: This service is provided as-is. By using this service, you agree to use it responsibly and in compliance with WhatsApp terms of service."
+        );
+      }
+    </script>
+  </body>
+</html>
