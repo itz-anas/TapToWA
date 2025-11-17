@@ -25,32 +25,22 @@ This tool is useful for customer service, business pages, or quick personal use.
 │── README.md
 ```
 
-
----
-
-## 🖼 Favicon (Tab Icon)
-
-To show an image in the browser tab, use this in `index.html`:
-
-```bash
-<link rel="icon" type="image/png" href="./logo.png" />
-```
-
 ---
 
 ## 🧠 How It Works
 
-User selects a country code
+- User selects a country code
 
-Enters their 10-digit phone number
+- Enters their 10-digit phone number
 
-Clicks Open WhatsApp
+- Clicks Open WhatsApp
 
-JavaScript validates the number
+- JavaScript validates the number
 
-Redirects user to:
+- Redirects user to:
 
 ```bash
-https://wa.me/\<countrycode\>\<number\>
+https://wa.me/<countrycode><number>
+
 
 ```
